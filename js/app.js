@@ -87,6 +87,33 @@ let verification = /\d{2}\/\d{2}\/\d{4}/g;
 
 
 
+                        // Episode 5 : Fiche de renseignement
+
+let nom = prompt("Quel est votre Nom ?");
+let prenom = prompt("Quel est votre Prénom ?");
+let sexe = prompt("Quel est  votre Sexe ? (Choisir Homme Ou Femme )");
+let statut ;
+
+while (sexe != "Homme" && sexe != "Femme")
+{
+    sexe = prompt("Choisir entre Homme Ou Femme ");
+
+}
+
+(sexe === "Homme") ? statut = "M." : statut = "Mme" ;
+
+let identitee = {
+
+    nomEnreg : nom,
+    prenomEnreg : prenom ,
+    sexeEnreg : sexe,
+    titre : statut
+};
+console.log(identitee);
+
+
+
+
 
                         // Episode 6 : Quel jour sommes-nous ?
 
