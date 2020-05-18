@@ -89,7 +89,7 @@ let verification = /\d{2}\/\d{2}\/\d{4}/g;
 
                         // Episode 5 : Fiche de renseignement
 
-let nom = prompt("Quel est votre Nom ?");
+/*let nom = prompt("Quel est votre Nom ?");
 let prenom = prompt("Quel est votre Prénom ?");
 let sexe = prompt("Quel est  votre Sexe ? (Choisir Homme Ou Femme )");
 let statut ;
@@ -109,7 +109,7 @@ let identitee = {
     sexeEnreg : sexe,
     titre : statut
 };
-console.log(identitee);
+console.log(identitee);*/
 
 
 
@@ -160,3 +160,99 @@ else
 {
     alert("Erreur ! Vous devez saisir un nombre dans l'intervalle 1 et 7");
 }*/
+
+
+
+
+
+
+                        // Episode 7 : Admis ou recalé
+
+                        
+/*let invit = prompt("Combien de notes voulez-vous saisir ? ");
+let note = prompt("Entrez votre note en mathématique :");
+let noteTab = new Array(parseInt(invit));
+let somme = 0;
+let moyenne = 0;
+let i = 0;
+
+while (i < parseInt(invit))
+{
+    if (parseInt(note) >= 0 && parseInt(note) <= 20) 
+    {
+        noteTab[i] = parseInt(note);
+        i ++;
+        somme += parseInt(note);
+        
+        if(i<parseInt(invit))
+        {
+            note = prompt("Entrez votre note en Mathematique");
+        }
+    } 
+    else
+    {
+        alert(`Vous devez entrer une note entre 0 et 20 !`);
+        note = prompt("Entrez votre note en Mathematique");
+    }   
+}
+console.log(noteTab);
+
+if(somme == 0)
+{
+    alert(" Vous n'avez rien rentré apparement ...")
+}
+else
+{
+    moyenne = somme/i;
+    alert(`Votre moyenne est : ${moyenne}`);    
+}*/
+
+
+
+
+
+                                    // Episode 8 : Proclamation
+
+alert(`saisir les noms et les moyennes des élèves d’une classe et affiche le premier de la classe.
+        Les nom et moyennes des élèves seront saisi sur ce format : Edwige BAMENOU = 19
+        Le mot clé pour finir la liste de saisie est : Fin `);
+
+
+let infoEleve;
+let listeEleve = [];
+let noteMax = 0;
+let nomMax = "";
+while (infoEleve != "Fin")
+{
+    infoEleve =  prompt("Quel est le nom et la  moyenne de l'élève ? \n vous pouvez sortir de la boucle avec le mot clé :Fin");
+    
+    const [nom, note] = infoEleve.split("=");
+
+    let eleve = {
+        nom : nom,
+        note : parseInt(note) 
+    } 
+    listeEleve.push(eleve);
+}
+
+for(let i=0; i < listeEleve.length ; i++){
+    
+    if (noteMax < listeEleve[i].note){
+        
+        noteMax = listeEleve[i].note;
+        nomMax = listeEleve[i].nom;
+    }
+}
+
+// listeEleve.forEach((eleve,index) =>{
+    
+//     if (noteMax < eleve.note){
+
+//         noteMax = eleve.note;
+//         nomMax = eleve.nom;
+//     }
+
+// })
+
+alert(`Félicitation à ${nomMax} qui est le premier avec ${noteMax}`);
+
