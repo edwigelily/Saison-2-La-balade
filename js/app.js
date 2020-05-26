@@ -1,19 +1,22 @@
 
-
-                        // Episode 1 : Donne-moi ton adresse e-mail
-
-/*let email=prompt("Quelle est votre adress mail?");
-let resultat= /\w+@\w+\.\w+/;
+/**                             Episode 1 : Donne-moi ton adresse e-mail
+ * 
+ * Ecrire un programme qui demande à l’utilisateur son adresse e-mail et
+ *  renvoie un message en cas d’erreur si l’adresse e-mail n’est pas correctement saisie.
+ */
+/*
+let email=prompt("Quelle est votre adress E-mail?"); //Récupérer l'adress E-mail
+let resultat= /\w+@\w+\.\w+{2,}/;// RegExp toutes les lettres et chiffres suivies de @ , puis toutes les lettres et chiffres suivies de "." et toutes les lettres et chiffres suivies à partir de 2 charactères
 let test= resultat.test(email);
 
-if(test===true)
+if(test)
 {
     alert("Votre E-mail est: "+ email);
 }
 else
 {
     alert("Erreur l’adresse e-mail n’est pas correctement saisie");
-}*/
+}
 
 
 
@@ -21,103 +24,131 @@ else
 
 
 
-                        // Episode 2 : Choisis un mot de passe
+/**                                     Episode 2 : Choisis un mot de passe
+ * 
+ * Ecrire un programme qui demande à l'utilisateur de renseigner un mot de passe 
+ * et vérifie si ce mot de passe obéit aux critères suivants :
+ * 8 caractères minimum
+ * contient une majuscule
+ * contient au moins un chiffre
+ */
+/*
+let password = prompt("Faites valider votre mot de passe: "); // Récupérer le mot de passe 
+let resultat1 =  /.{8,}/g; //Tous les charactères , 8 à n , global
+let resultat2 = /\d+/g; //Un ou plusieurs chiffres, global
+let resultat3 = /[A-Z]+/g; // de A à Z (majuscule), global
 
-
-/*let password = prompt("Faites valider votre Mot de passe: ");
-let resultat1 =  /.{8,}/g;
-let resultat2 = /\d+/g;
-let resultat3 = /[A-Z]+/g;
-
-if( resultat1.test(password) && resultat2.test(password) && resultat3.test(password) === true)
+if( resultat1.test(password) && resultat2.test(password) && resultat3.test(password))
 {
     alert(`Mot de passe : ${password}\n Validé !! `);
 }
 else
 {
     alert(`Votre mot de passe n'est pas bon du tout!`);
-}*/
+}
 
 
 
 
 
 
+/**                                 Episode 3 : Au pluriel
+ * 
+ * Ecrire un programme qui demande à l'utilisateur son nom et le nombre d’enfants qu’il a et affiche un résumé.
+ * Exemples : 
+ * Marc, vous avez 1 enfant.
+ * Luc, vous avez 3 enfants.
+ * Jean, vous n’avez pas d’enfant.
+ */
+/*
+let nom = prompt("Quel est votre nom ? ");
+let nombreEnfant= parseInt(prompt("Combien d'enfant avez-vous ?")) ;
 
-                         // Episode 3 : Au pluriel
-
-/*let nom = prompt("Quel est votre nom ? ");
-let nombreEnfant= prompt("Combien d'enfant avez-vous ?");
-
-if(parseInt(nombreEnfant)==0)
+if(nombreEnfant === 0)
 {
     alert(nom + ", vous n’avez pas d’enfant");
 }
-else if(parseInt(nombreEnfant)==1)
+else if(nombreEnfant === 1)
 {
-    alert(nom + ", vous n'avez qu'1 enfant");
+    alert(nom + ", vous n'avez qu'un enfant");
 }
-else if(parseInt(nombreEnfant)>1)
+else if(nombreEnfant > 1)
 {
-    alert(nom + ", vous avez " + parseInt(nombreEnfant) + " enfants"+"\n C'est bien mais n'oubliez surtout pas de vous en occuper");
+    alert(nom + ", vous avez " + nombreEnfant + " enfants"+"\n C'est bien mais n'oubliez surtout pas de vous en occuper ");
 }
 else
 {
- alert("Vous devez rentrer un entier positif ");
-}*/
+    alert("Vous devez rentrer un entier positif ");
+}
 
 
 
 
 
 
+/**                                 Episode 4 : Dis-moi, quand es-tu né ?
+ * 
+ * Ecrire un programme demande la date de naissance d’un utilisateur 
+ * et vérifie si la date saisie est au format JJ/MM/AAAA. 
+ * Exemple : 13/05/2020.
+ * 
+ */
+/*
+let dateNaissance = prompt("Entrez votre date de naissance sous ce format (JJ/MM/AAAA) :");
 
-                        // Episode 4 : Dis-moi, quand es-tu né ?
+let verification = /\d{2}\/\d{2}\/\d{4}/g; // 2 chiffres"/" 2 chiffres "/" 4 chiffres , global (à optimiser)
 
-
-/*let dateNaissance = prompt("Entrez votre date de naissance sous ce format (JJ/MM/AAAA) :");
-
-let verification = /\d{2}\/\d{2}\/\d{4}/g;
-
-(verification.test(dateNaissance) === true) ? alert(`Format correct!\n ${dateNaissance}`) : alert(`Format incorrect!\n ${dateNaissance}`);
-*/
+alert ((verification.test(dateNaissance) === true) ?`Format correct!\n ${dateNaissance}` : `Format incorrect!\n ${dateNaissance}`);
 
 
 
 
 
 
-                        // Episode 5 : Fiche de renseignement
-
-/*let nom = prompt("Quel est votre Nom ?");
+/**                             Episode 5 : Fiche de renseignement
+ * 
+ * Ecrire un programme qui :
+ * demande à l'utilisateur de saisir son nom, prénom ainsi que son sexe ;
+ * stocke ces informations dans un objet;
+ * ajoute une clé titre à cet objet ayant comme valeur M ou Mme en fonction du sexe de l’utilisateur;
+ * Affiche l’objet en console.
+ */
+/*
+let nom = prompt("Quel est votre Nom ?");
 let prenom = prompt("Quel est votre Prénom ?");
-let sexe = prompt("Quel est  votre Sexe ? (Choisir Homme Ou Femme )");
+let sexe ;
 let statut ;
 
-while (sexe != "Homme" && sexe != "Femme")
+do
 {
-    sexe = prompt("Choisir entre Homme Ou Femme ");
-
+    sexe = prompt("Quel est  votre Sexe ? (Choisir Homme ou Femme )");
 }
+while (sexe != "Homme" && sexe != "Femme")
 
 (sexe === "Homme") ? statut = "M." : statut = "Mme" ;
 
 let identitee = {
-
-    nomEnreg : nom,
-    prenomEnreg : prenom ,
-    sexeEnreg : sexe,
+    nom : nom,
+    prenom : prenom ,
+    sexe : sexe,
     titre : statut
-};
-console.log(identitee);*/
+}; //Déclaration de l'objet qui récupère les informations
+
+console.log(identitee);
 
 
 
+/**                             Episode 6 : Quel jour sommes-nous ?
+ * 
+ * Ecrire un programme qui demande à l’utilisateur de saisir le numéro d’un jour et renvoie le jour correspondant.
+ * Exemple : 
+ * Entrée : 3
+ * Sortie : Mercredi
+ * NB : Les jours doivent être stockés au préalable dans un tableau.*/
 
+/*
 
-                        // Episode 6 : Quel jour sommes-nous ?
-
-/*let numeroJour = prompt("Entrer un nombre compris entre 1 et 7 désignant un jour de la semaine");
+let numeroJour = parseInt(prompt("Entrer un nombre compris entre 1 et 7 désignant un jour de la semaine"));
 let jourSemaine = ["Lundi",
                     "Mardi",
                     "Mercredi",
@@ -125,79 +156,53 @@ let jourSemaine = ["Lundi",
                     "Vendredi",
                     "Samedi",
                     "Dimanche"];
-if(parseInt(numeroJour)>=1 && parseInt(numeroJour)<=7)
+
+if(numeroJour >= 1 && numeroJour <= 7)
 {
-    switch(parseInt(numeroJour)){
-        case 1:
-            alert("1 correspond à " + jourSemaine[0]);
-            break;
-        case 2 :
-            alert("2 correspond à " + jourSemaine[1]);
-            break;
-
-        case 3 :
-            alert("3 correspond à " + jourSemaine[2]);
-            break;
-        
-        case 4 :
-            alert("4 correspond à " + jourSemaine[3]);
-            break;
-
-        case 5 :
-            alert("5 correspond à " + jourSemaine[4]);
-            break;
-        
-        case 6 :
-            alert("6 correspond à " + jourSemaine[5]);
-            break;
-        
-        case 7 :
-            alert("7 correspond à " + jourSemaine[6]);
-            break;
-    }
+    alert(`${numeroJour} correspond à  ${jourSemaine[numeroJour - 1]}`);
 }
 else
 {
     alert("Erreur ! Vous devez saisir un nombre dans l'intervalle 1 et 7");
-}*/
+}
 
 
 
 
 
+/**                                     Episode 7 : Admis ou recalé
+ * 
+ * Ecrire un programme qui demande à l’utilisateur de saisir toutes ses notes en Mathématiques et affiche sa moyenne.
+ * NB : Les notes varient de 0 à 20 et seront stockées dans un tableau.
+ */
+ /*                       
+let invit = parseInt(prompt("Combien de notes voulez-vous saisir ? "));
+let note = parseInt(prompt("Entrez votre note en mathématique :"));
+let noteTab = new Array(invit);
+let somme = moyenne = i =0;
 
-                        // Episode 7 : Admis ou recalé
-
-                        
-/*let invit = prompt("Combien de notes voulez-vous saisir ? ");
-let note = prompt("Entrez votre note en mathématique :");
-let noteTab = new Array(parseInt(invit));
-let somme = 0;
-let moyenne = 0;
-let i = 0;
-
-while (i < parseInt(invit))
+while (i < invit)
 {
-    if (parseInt(note) >= 0 && parseInt(note) <= 20) 
+    if (note >= 0 && note <= 20) 
     {
-        noteTab[i] = parseInt(note);
+        noteTab[i] = note ;
         i ++;
-        somme += parseInt(note);
+        somme += note;
         
-        if(i<parseInt(invit))
+        if(i< invit)
         {
-            note = prompt("Entrez votre note en Mathematique");
+            note = parseInt(prompt("Entrez votre note en mathématique :"));
         }
     } 
     else
     {
         alert(`Vous devez entrer une note entre 0 et 20 !`);
-        note = prompt("Entrez votre note en Mathematique");
+        note = parseInt(prompt("Entrez votre note en mathématique :"));
     }   
 }
 console.log(noteTab);
 
-if(somme == 0)
+if(somme === 0)
 {
     alert(" Vous n'avez rien rentré apparement ...")
 }
@@ -205,26 +210,36 @@ else
 {
     moyenne = somme/i;
     alert(`Votre moyenne est : ${moyenne}`);    
-}*/
+}
 
 
 
 
 
-                                    // Episode 8 : Proclamation
-
-alert(`saisir les noms et les moyennes des élèves d’une classe et affiche le premier de la classe.
-        Les nom et moyennes des élèves seront saisi sur ce format : Edwige BAMENOU = 19
+/**
+ *                                      Episode 8 : Proclamation
+ * 
+ * Ecrire un programme qui demande de saisir les noms et les moyennes des élèves d’une classe 
+ * et affiche le premier de la classe (son nom ainsi que sa moyenne).
+ * NB : Le nombre d’élèves n’est pas connu d’avance.
+ */
+/*
+alert(` Vous pouvez saisir les noms et les moyennes des élèves d’une classe et ce programme  affichera le premier de la classe.
+        Les noms et moyennes des élèves seront saisi sur ce format : Edwige BAMENOU = 19
         Le mot clé pour finir la liste de saisie est : Fin `);
 
 
 let infoEleve;
 let listeEleve = [];
-let noteMax = 0;
-let nomMax = "";
+let eleveMax ={
+    note : 0,
+    nom : ""
+};
+
+
 while (infoEleve != "Fin")
 {
-    infoEleve =  prompt("Quel est le nom et la  moyenne de l'élève ? \n vous pouvez sortir de la boucle avec le mot clé :Fin");
+    infoEleve = prompt("Quel est le nom et la  moyenne de l'élève sur ce format : Edwige BAMENOU = 19? \n vous pouvez sortir de la boucle avec le mot clé :Fin");
     
     const [nom, note] = infoEleve.split("=");
 
@@ -233,14 +248,14 @@ while (infoEleve != "Fin")
         note : parseInt(note) 
     } 
     listeEleve.push(eleve);
+    
 }
 
 for(let i=0; i < listeEleve.length ; i++){
     
-    if (noteMax < listeEleve[i].note){
-        
-        noteMax = listeEleve[i].note;
-        nomMax = listeEleve[i].nom;
+    if ( eleveMax.note < listeEleve[i].note)
+    {
+        eleveMax = listeEleve[i];
     }
 }
 
@@ -254,5 +269,7 @@ for(let i=0; i < listeEleve.length ; i++){
 
 // })
 
-alert(`Félicitation à ${nomMax} qui est le premier avec ${noteMax}`);
+alert(`Félicitation à ${eleveMax.nom} qui a la plus grande moyenne : ${eleveMax.note}`);*/
+
+
 

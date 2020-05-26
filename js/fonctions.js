@@ -1,31 +1,42 @@
-                                    //  Episode 9 : A table !
-
+/**
+ *                                          Episode 9 : A table !
+ *  
+ * Ecrire une fonction qui prend un nombre en paramètre et affiche sa table de multiplication en console.
+ */
 /*
-let nombreSaisi = prompt("saisir un nombre ");
-
 const multiplication = (nombre) =>{
-
+    let calcule = 0;
+    let  ListeMultiplication = [];
+    
    for(let i = 0; i <= 12; i++)
    {
-        let calcule = nombre*i;
-
-        alert (nombre + "*" + i + " = " +calcule);
+        calcule = nombre*i; 
+        ListeMultiplication.push( nombre + " * "+ i + " =  " + calcule);
    }
+    return ( ListeMultiplication);
 };
-multiplication(parseInt(nombreSaisi));*/
+
+
+let nombreSaisi = parseInt(prompt("saisir un nombre "));
+
+console.table(multiplication(nombreSaisi));
 
 
 
 
 
 
-                            // Episode 10 : Pair ou impair ?
+/**
+ *                                  Episode 10 : Pair ou impair ?
+ * 
+ * Ecrire une fonction qui prend en paramètre un nombre et retourne true 
+ * si le nombre est pair ou false si le nombre est impair.
+ */
 
-/*let nombreSaisi = prompt("saisir un nombre ");
-
+/*
 const pairImpair = (nombre) =>{
     
-    if(nombre%2 == 0)
+    if(nombre % 2 === 0)
     {
         return true;
     }
@@ -35,7 +46,9 @@ const pairImpair = (nombre) =>{
     }
 }
 
-pairImpair(parseInt(nombreSaisi));*/
+let nombreSaisi = parseInt(prompt("saisir un nombre ")) ;
+
+alert (pairImpair(nombreSaisi));
 
 
 
@@ -43,112 +56,82 @@ pairImpair(parseInt(nombreSaisi));*/
 
 
 
-                        // Episode 11 : Le boss /  Episode 1 
-
+/**
+ *                                           Episode 11 : Le boss
+ * 
+ * Transformer les épisodes 1, 2, 4, 6 et 7 en leur équivalent en fonction.
+ * NB : la fonction de l’épisode 7 prendra un tableau en paramètre.
+ * 
+ * */
 /*
-let emailSaisi = prompt("Quelle est votre adress mail?");
-
 const verifierEmail = (email) => {
     
     let resultat = /\w+@\w+\.\w+/;
     let test = resultat.test(emailSaisi);
 
-    if(test === true)
+    if(test)
     {
-    alert("Votre E-mail est: \n"+ email);
+        return("Votre E-mail est: "+ email);
     }
     else
     {
-    alert("Erreur l’adresse e-mail n’est pas correctement saisie");
+        return("Erreur l’adresse e-mail n’est pas correctement saisie");
     }
-
 };
-verifierEmail(emailSaisi);*/
+
+let emailSaisi = prompt("Quelle est votre adress mail?");
+
+alert(verifierEmail(emailSaisi));
 
 
 
 
 
+/**
+ *                          Episode 11 : Le boss /  Episode 2
+ */
 
 
-                        // Episode 11 : Le boss /  Episode 2
-
-/*let passwordSaisi = prompt("Faites valider votre Mot de passe: ");
-
-
+/*
 const verifierPassword = (password) => 
 {
     let resultat1 =  /.{8,}/g;
     let resultat2 = /\d+/g;
     let resultat3 = /[A-Z]+/g;
 
-    if( resultat1.test(password) && resultat2.test(password) && resultat3.test(password) === true)
+    if( resultat1.test(password) && resultat2.test(password) && resultat3.test(password))
     {
-        alert(`Mot de passe : ${password}\n Validé !! `);
+        return(`Mot de passe : ${password}\n Validé !! `);
     }
     else
     {
-        alert(`Votre mot de passe n'est pas bon du tout!`);
-    }
-    
-};
-verifierPassword(passwordSaisi);
-*/
-
-
-
-
-
-
-
-
-                        // Episode 11 : Le boss /  Episode 3
-
-
-/*let nomSaisi = prompt("Quel est votre nom ? ");
-let nombreEnfant= prompt("Combien d'enfant avez-vous ?");
-
-const afficherNombreEnfant = (nom,nombreEnfant) => {
-
-
-    if(parseInt(nombreEnfant)==0)
-    {
-        alert(nom + ", vous n’avez pas d’enfant");
-    }
-    else if(parseInt(nombreEnfant)==1)
-    {
-        alert(nom + ", vous n'avez qu'1 enfant");
-    }
-    else if(parseInt(nombreEnfant)>1)
-    {
-        alert(nom + ", vous avez " + parseInt(nombreEnfant) + " enfants"+"\n C'est bien mais n'oubliez surtout pas de vous en occuper");
-    }
-    else
-    {
-    alert("Vous devez rentrer un entier positif ");
+        return(`Votre mot de passe n'est pas bon du tout!`);
     }
 };
-afficherNombreEnfant(nomSaisi,nombreEnfant);*/
+
+let passwordSaisi = prompt("Faites valider votre Mot de passe: ");
+
+alert(verifierPassword(passwordSaisi));
 
 
 
 
 
+ /**
+  *                             Episode 11 : Le boss /  Episode 4
+  * */                    
 
-
-                        // Episode 11 : Le boss /  Episode 4
-
-/*let dateNaissanceSaisi = prompt("Entrez votre date de naissance sous ce format (JJ/MM/AAAA) :");
-
+/*
 const verificationFormatNaissance = (dateNaissance) => {
 
     let verification = /\d{2}\/\d{2}\/\d{4}/g;
-    (verification.test(dateNaissance) === true) ? alert(`Format correct!\n ${dateNaissance}`) : alert(`Format incorrect!\n ${dateNaissance}`);
-
+    return ((verification.test(dateNaissance) === true) ?`Format correct!\n ${dateNaissance}` : `Format incorrect!\n ${dateNaissance}`);
 };
 
-verificationFormatNaissance(dateNaissanceSaisi);*/
+let dateNaissanceSaisi = prompt("Entrez votre date de naissance sous ce format (JJ/MM/AAAA) :");
 
+alert (verificationFormatNaissance(dateNaissanceSaisi));
+*/
 
 
 
@@ -158,56 +141,30 @@ verificationFormatNaissance(dateNaissanceSaisi);*/
                         // Episode 11 : Le boss /  Episode 6
 
 
-/*let numeroJourSaisi = prompt("Entrer un nombre compris entre 1 et 7 désignant un jour de la semaine");
-
+/*
 const trouverJourSemaine = (numeroJour) => {
 
-        let jourSemaine = ["Lundi",
-                        "Mardi",
-                        "Mercredi",
-                        "Jeudi",
-                        "Vendredi",
-                        "Samedi",
-                        "Dimanche"];
-    if(parseInt(numeroJour)>=1 && parseInt(numeroJour)<=7)
+    let jourSemaine = ["Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+    "Dimanche"];
+
+    if(numeroJour >= 1 && numeroJour <= 7)
     {
-        switch(parseInt(numeroJour)){
-            case 1:
-                alert("1 correspond à " + jourSemaine[0]);
-                break;
-            case 2 :
-                alert("2 correspond à " + jourSemaine[1]);
-                break;
-
-            case 3 :
-                alert("3 correspond à " + jourSemaine[2]);
-                break;
-            
-            case 4 :
-                alert("4 correspond à " + jourSemaine[3]);
-                break;
-
-            case 5 :
-                alert("5 correspond à " + jourSemaine[4]);
-                break;
-            
-            case 6 :
-                alert("6 correspond à " + jourSemaine[5]);
-                break;
-            
-            case 7 :
-                alert("7 correspond à " + jourSemaine[6]);
-                break;
-        }
+        return(`${numeroJour} correspond à  ${jourSemaine[numeroJour - 1]}`);
     }
     else
     {
-        alert("Erreur ! Vous devez saisir un nombre dans l'intervalle 1 et 7");
+        return("Erreur ! Vous devez saisir un nombre dans l'intervalle 1 et 7");
     }
-
 }
-trouverJourSemaine(numeroJourSaisi);*/
+let numeroJourSaisi = parseInt(prompt("Entrer un nombre compris entre 1 et 7 désignant un jour de la semaine"));
 
+alert (trouverJourSemaine(numeroJourSaisi));
+*/
 
 
 
@@ -215,7 +172,8 @@ trouverJourSemaine(numeroJourSaisi);*/
 
 
                         // Episode 11 : Le boss /  Episode 7
-    
+
+                        
 let invitSaisi = prompt("Combien de notes voulez-vous saisir ? ");
 let noteSaisi = prompt("Entrez votre note en mathématique :");
     
