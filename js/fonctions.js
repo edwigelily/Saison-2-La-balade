@@ -67,7 +67,7 @@ alert (pairImpair(nombreSaisi));
 const verifierEmail = (email) => {
     
     let resultat = /\w+@\w+\.\w+/;
-    let test = resultat.test(emailSaisi);
+    let test = resultat.test(email);
 
     if(test)
     {
